@@ -21,8 +21,8 @@ t4 = create_table("c1", "d1", "t4")
 f1 = File(url = "http://randomfile")
 
 with DAG(
-    dag_id='example_operator',
-    schedule_interval='0 0 * * *',
+    start_date=datetime(2024, 1, 1),
+    schedule="@daily",
     start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     dagrun_timeout=datetime.timedelta(minutes=60),
     params={"example_key": "example_value"},
